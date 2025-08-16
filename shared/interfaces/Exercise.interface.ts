@@ -17,5 +17,20 @@ export interface IExercise {
   /**
    * The logs for the sets performed during this exercise.
    */
-  sets: ISetLog;
+  sets: ISetLog[];
+}
+
+/**
+ * Represents a predefined exercise from a master list.
+ * @interface
+ */
+export interface IPredefinedExercise {
+  /**
+   * The unique identifier for the predefined exercise.
+   */
+  id: UUID;
+  /**
+   * The name of the predefined exercise.
+   */
+  name: string;
 }

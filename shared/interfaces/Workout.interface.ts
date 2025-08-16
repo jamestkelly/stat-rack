@@ -17,7 +17,7 @@ export interface IWorkout {
   /**
    * The exercises performed during this workout session.
    */
-  exercises: IExercise;
+  exercises: IExercise[];
 }
 
 /**
