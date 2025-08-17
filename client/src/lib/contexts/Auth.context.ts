@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { IUser } from "../../../../../shared/interfaces/User.interface";
+import { IUser } from "../../../../shared/interfaces/User.interface";
 
 /**
  * A React context for managing user authentication state.

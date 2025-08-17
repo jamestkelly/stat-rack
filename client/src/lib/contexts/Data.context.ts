@@ -1,9 +1,9 @@
 import React, { createContext } from "react";
-import { IPredefinedExercise } from "../../../../../shared/interfaces/Exercise.interface";
+import { IPredefinedExercise } from "../../../../shared/interfaces/Exercise.interface";
 import {
-  IWorkout,
-  IWorkoutTemplate,
-} from "../../../../../shared/interfaces/Workout.interface";
+    IWorkout,
+    IWorkoutTemplate,
+} from "../../../../shared/interfaces/Workout.interface";
 
 /**
  * A React context for managing workout, exercise, and template data.
