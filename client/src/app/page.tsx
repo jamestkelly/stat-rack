@@ -1,9 +1,10 @@
 "use client";
 
+import { HeroSection } from "@/components/home/Hero";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AuthContext } from "@/lib/contexts/Auth.context";
-import { Dumbbell, LineChart, List, Loader2 } from "lucide-react";
+import { Dumbbell, Github, Instagram, LineChart, List, Loader2, Twitter } from "lucide-react";
 import { useContext, useState } from "react";
 
 export default function LandingPage() {
@@ -11,19 +12,19 @@ export default function LandingPage() {
   const [showLogin, setShowLogin] = useState(false);
   const features = [
     {
-      icon: <Dumbbell className="h-8 w-8 text-primary" />,
+      icon: <Dumbbell className="h-8 w-8 text-primary-foreground" />,
       title: "Effortless Logging",
       description:
         "Quickly log sets, reps, and weight with our intuitive interface. Spend more time lifting, less time tapping.",
     },
     {
-      icon: <LineChart className="h-8 w-8 text-primary" />,
+      icon: <LineChart className="h-8 w-8 text-primary-foreground" />,
       title: "Visualize Your Progress",
       description:
         "See your strength gains over time with beautiful, easy-to-read charts for every exercise.",
     },
     {
-      icon: <List className="h-8 w-8 text-primary" />,
+      icon: <List className="h-8 w-8 text-primary-foreground" />,
       title: "Build Custom Routines",
       description:
         "Create and save your own workout templates to start your next session in seconds.",
@@ -44,7 +45,6 @@ export default function LandingPage() {
 
   return (
     <div className="bg-background text-foreground">
-      {/* Header */}
       <header className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         <div className="flex items-center gap-2 text-xl font-bold text-primary">
           <Dumbbell className="h-8 w-8" />
@@ -55,24 +55,9 @@ export default function LandingPage() {
         </Button>
       </header>
 
-      {/* Hero Section */}
       <main className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <section className="text-center py-20 sm:py-32">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">
-            The Ultimate Workout Tracker
-          </h1>
-          <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-            Log your workouts, track your progress, and get stronger. Simple,
-            powerful, and free.
-          </p>
-          <div className="mt-8">
-            <Button size="lg" onClick={getStarted}>
-              Get Started Free
-            </Button>
-          </div>
-        </section>
+        <HeroSection onGetStarted={getStarted} />
 
-        {/* Features Section */}
         <section className="py-20 sm:py-24">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight">
@@ -84,12 +69,15 @@ export default function LandingPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="text-center">
-                <CardHeader className="items-center">
+              <Card 
+                key={index} 
+                className="transition-all transform hover:scale-105 hover:shadow-lg hover:bg-accent"
+              >
+                <CardHeader className="flex flex-row items-center gap-4">
                   {feature.icon}
-                  <CardTitle>{feature.title}</CardTitle>
+                  <CardTitle className="text-left">{feature.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="text-left">
                   <p className="text-muted-foreground">{feature.description}</p>
                 </CardContent>
               </Card>
@@ -108,6 +96,21 @@ export default function LandingPage() {
             <Button size="lg" onClick={getStarted}>
               Start Tracking Today
             </Button>
+          </div>
+          <div className="mt-16 pt-8 border-t border-muted-foreground/20 text-muted-foreground text-sm">
+            <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-4 md:gap-8">
+              <div className="flex gap-4">
+                <a href="#" className="hover:underline">Privacy Policy</a>
+                <a href="#" className="hover:underline">Terms of Service</a>
+                <a href="#" className="hover:underline">About</a>
+              </div>
+              <div className="flex gap-4">
+                <a href="#" aria-label="Github"><Github className="h-5 w-5 hover:text-foreground transition-colors" /></a>
+                <a href="#" aria-label="Twitter"><Twitter className="h-5 w-5 hover:text-foreground transition-colors" /></a>
+                <a href="#" aria-label="Instagram"><Instagram className="h-5 w-5 hover:text-foreground transition-colors" /></a>
+              </div>
+            </div>
+            <p className="mt-8 text-center">&copy; 2025 Statrack. All rights reserved.</p>
           </div>
         </div>
       </footer>
