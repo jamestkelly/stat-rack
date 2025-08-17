@@ -4,6 +4,7 @@ import { HeroSection } from "@/components/home/Hero";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AuthContext } from "@/lib/contexts/Auth.context";
+import { discordServerLink, githubRepositoryLink } from "@shared/constants/Contact.constant";
 import { Dumbbell, LineChart, List, Loader2 } from "lucide-react";
 import { useContext, useState } from "react";
 
@@ -86,7 +87,6 @@ export default function LandingPage() {
         </section>
       </main>
 
-      {/* Footer */}
       <footer className="text-center py-16 bg-secondary/40">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold">
@@ -106,19 +106,16 @@ export default function LandingPage() {
                 <a href="#" className="hover:underline">
                   Terms of Service
                 </a>
-                <a href="#" className="hover:underline">
-                  About
-                </a>
               </div>
               <div className="flex gap-4">
-                <a href="https://github.com/jamestkelly/stat-rack" aria-label="GitHub">
+                <a href={githubRepositoryLink} aria-label="GitHub">
                   <img
                     src="/svg/github.svg"
                     alt="GitHub"
                     className="h-5 w-5 hover:text-foreground transition-colors"
                   />
                 </a>
-                <a href="https://discord.gg/dcGfsyF8fV" aria-label="Discord">
+                <a href={discordServerLink} aria-label="Discord">
                   <img
                     src="/svg/discord.svg"
                     alt="Discord"
